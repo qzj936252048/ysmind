@@ -1,0 +1,36 @@
+.myInput
+{
+	width: 350px;
+    height: 32px;
+	position: relative;
+    border: 1px solid #D3D3D3;
+    background-color: #fff;
+    vertical-align: middle;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0;
+    padding: 0;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    text-indent:5px;
+}
+
+.myInputValidate
+{
+	width: 350px;
+    height: 32px;
+	position: relative;
+    border: 1px solid #D3D3D3;
+    vertical-align: middle;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0;
+    padding: 0;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    text-indent:5px;
+}

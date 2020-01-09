@@ -1,0 +1,141 @@
+
+*{
+	font-family: '瀵邦喛钂嬮梿鍛寸拨';
+}
+
+textarea{ 
+	min-height: 50px;
+}
+
+/*====================閻炴稏鍔屽畷鐒峯rder闁哄秴鍢茬槐锟�=====================border: 1px solid #993266;*/
+.idleField {
+	width:250px; height:28px; line-height:28px;
+	border-radius: 4px;
+	border: 1px solid gray;
+	outline: none;
+	box-shadow: 0 0 18px rgba(103, 166, 217, 1);
+	text-indent:10px;
+	margin-left:0px;
+	/* -webkit-transition: box-shadow 0.30s ease-in-out; #993266  #909090 //闁告瑯浜ｉ锟給x-shadow閻忕偟鍋為敓浠嬪磻濮樺磭绠栨繛鎾墲閺呫儵寮稿鎰＜http://blog.csdn.net/zhailulu/article/details/6976019
+     	 -moz-transition:  box-shadow 0.30s ease-in-out;     //firefox */
+}
+/* #066C95 #87C6F9 */
+.focusField {
+	width:250px; height:28px; line-height:28px;
+	border-radius: 4px;
+	border: #87C6F9 1px solid;
+	outline: none;
+	box-shadow: 0 0 18px rgba(103, 166, 217, 1);
+	text-indent:10px;
+	margin-left:0px;
+}
+
+.otherFormElement{
+	height:28px; 
+	line-height:28px;
+}
+
+/*<input type='file' 闁哄秴鍢茬槐锟�
+.ifile {
+	position: absolute;
+	height: 25px;
+	line-height:25px;
+	margin-top:4px;
+	opacity: 0;
+	filter: alpha(opacity = 0);
+	-moz-opacity: 0;
+	width: 360px;
+	cursor: pointer;
+}
+
+/*====================css3-button闁哄秴鍢茬槐锟�=====================*/
+.commons_button{
+	background-color: #d7e5f5;
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d7e5f5), color-stop(100%, #cbe0f5));
+	background-image: -webkit-linear-gradient(top, #d7e5f5, #cbe0f5);
+	background-image: -moz-linear-gradient(top, #d7e5f5, #cbe0f5);
+	background-image: -ms-linear-gradient(top, #d7e5f5, #cbe0f5);
+	background-image: -o-linear-gradient(top, #d7e5f5, #cbe0f5);
+	background-image: linear-gradient(top, #d7e5f5, #cbe0f5);
+	border-top: 1px solid #abbbcc;
+	border-left: 1px solid #a7b6c7;
+	border-bottom: 1px solid #a1afbf;
+	border-right: 1px solid #a7b6c7;
+	border-radius: 5px;
+	-webkit-box-shadow: inset 0 1px 0 0 white;
+	box-shadow: inset 0 1px 0 0 white;
+	color: #1a3e66;
+	font: normal 11px/1 "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+	padding: 6px 10px 7px 10px;
+	text-align: center;
+	text-shadow: 0 1px 1px #fff;
+	cursor: pointer;
+	font-size: 13px;
+	font-family: '瀵邦喛钂嬮梿鍛寸拨';
+}
+
+.forminfo_li_label
+{width: 120px;}
+
+
+	.table_head{
+		border-bottom: 1px solid rgb(182, 202, 210);
+	    text-indent: 11px;
+	    background-color: #EDF6FA;
+	    height: 25px;
+	    line-height: 25px;
+	    text-overflow: ellipsis;
+	    padding-right: 18px;
+	}
+	/* ensure box-sizing is set to content-box, if using jQuery versions older than 1.8;
+	 this page is using jQuery 1.4 */
+	*, *:before, *:after {
+		-moz-box-sizing: content-box;
+		-webkit-box-sizing: content-box;
+		box-sizing: content-box;
+	}
+	/* overflow table */
+	.wrapper {
+		overflow-x: auto;
+		overflow-y: hidden;
+		padding-top: 0px;
+	}
+	.wrapper table {
+		width: auto;
+		table-layout: fixed;
+	}
+	.wrapper .tablesorter td {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		min-width: 10px;
+	}
+	.wrapper .tablesorter th {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		min-width: 10px;
+	}
+table.gridtable {width:1000px;margin:10px;font-family: verdana,arial,sans-serif;font-size:11px;border-width: 1px;border-color: #1AA094;border-collapse: collapse;word-break:break-all; word-wrap:break-word;}
+table.gridtable th {border-width: 1px;padding: 3px;border-style: solid;border-color: #1AA094;background-color: #1AA094;text-align: center;font-weight: bold;color:white;height: 25px;line-height: 25px;font-size: 14px;}
+table.gridtable td {border-width: 1px;padding: 5px;border-style: solid;border-color: #1AA094;background-color: #ffffff;}
+
+table.gridform {width:828px;margin:10px;font-family: verdana,arial,sans-serif;font-size:11px;color:#333333;border-width: 1px;border-color: #666666;border-collapse: collapse;}
+table.gridform th {border-width: 1px;padding: 3px;border-style: solid;border-color: white;background-color: #B7E8BD;padding-left:20px;font-weight: bold;height: 30px;line-height: 30px;color: #4A7EBB;}
+table.gridform td {border-width: 1px;padding: 5px;border-style: solid;border-color: white;background-color: #ffffff;}
+.needValidate{color: red;font-weight: bolder;font-size: 18px;}
+
+input[type='radio'],input[type='checkbox']{width: 20px;height: 20px;}
+
+.headTdOne{width: 50px;word-wrap:break-word;border:none;text-align: center;}
+.headTdTwo{width: 170px;word-wrap:break-word;border:none;text-indent: 0px;text-align: left;}
+.bodyTdOne{width: 50px;word-wrap:break-word;border:none;text-align: center;}
+.bodyTdTwo{width: 170px;word-wrap:break-word;border:none;text-indent: 0px;text-align: left;}
+table.altrowstable {font-family: verdana,arial,sans-serif;font-size:11px;color:#333333;border-width: 1px;border-color: #a9c6c9;border-collapse: collapse;}
+table.altrowstable th {border-width: 1px;padding: 4px ;border-style: solid;border-color: #a9c6c9;background: url(../images/righttop.gif) repeat-x;height: 34px;line-height: 34px;}
+table.altrowstable td {border-width: 1px;padding: 4px ;border-style: solid;border-color: #a9c6c9;}
+.oddrowcolor{background-color:#d4e3e5;}
+.evenrowcolor{background-color:#c3dde0;}
+input[type='radio'],input[type='checkbox']{width: 20px;height: 20px;}
+
+
+	

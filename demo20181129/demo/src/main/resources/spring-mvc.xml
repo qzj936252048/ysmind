@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+    
+    <description>Spring MVC Configuration</description>
+    
+	<context:property-placeholder ignore-unresolvable="true" location="classpath*:/project.properties" />
+	
+	<context:component-scan base-package="com.ysmind" use-default-filters="false"><!-- base-package 如果多个，用“,”分隔 -->
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
+
+	<bean id="exceptionResolver"
+		class="com.ysmind.exception.CustomSimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<prop key="com.ysmind.exception.UncheckedException">/error/500</prop>
+				<prop key="java.lang.Exception">/error/500</prop>
+			</props>
+		</property>
+	</bean>  
+  
+	<mvc:annotation-driven content-negotiation-manager="contentNegotiationManager">
+		<mvc:message-converters register-defaults="true">
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+		    	<constructor-arg value="UTF-8" />
+			</bean>
+			<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                <property name="prettyPrint" value="true"/>
+                <property name="objectMapper">  
+                    <bean class="com.ysmind.common.mapper.JsonMapper"></bean>  
+                </property> 
+            </bean>
+            <bean class="org.springframework.http.converter.xml.MarshallingHttpMessageConverter">
+		        <constructor-arg>
+		        	<bean class="org.springframework.oxm.xstream.XStreamMarshaller">
+				        <property name="streamDriver">
+				            <bean class="com.thoughtworks.xstream.io.xml.StaxDriver"/>
+				        </property>
+				        <property name="annotatedClasses">
+				            <list>
+				                <value>com.ysmind.common.persistence.BaseEntity</value>
+				            </list>
+				        </property>
+				    </bean>
+		        </constructor-arg>
+		        <property name="supportedMediaTypes" value="application/xml"></property>
+			</bean>
+		</mvc:message-converters>
+		<mvc:argument-resolvers>
+			<bean class="com.ysmind.common.web.SecureModelAttributeMethodArgumentResolver">
+				<constructor-arg value="false"/>
+			</bean>
+		</mvc:argument-resolvers>
+	</mvc:annotation-driven>
+	
+	<bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+	    <property name="mediaTypes" >
+	        <map> 
+                <entry key="xml" value="application/xml"/> 
+                <entry key="json" value="application/json"/> 
+            </map>
+	    </property>
+        <property name="ignoreAcceptHeader" value="true"/>
+        <property name="favorPathExtension" value="true"/>
+	</bean>
+
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="${web.view.prefix}"/>
+		<property name="suffix" value="${web.view.suffix}"/>
+	</bean>
+	
+	<mvc:default-servlet-handler/>
+	
+	<mvc:view-controller path="/" view-name="redirect:/sys/login/enter"/>
+	<mvc:view-controller path="/login/logout" view-name="redirect:/sys/login/enter"/>
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<bean class="com.ysmind.modules.sys.interceptor.AuthInterceptor">
+				<property name="excludeUrls">
+					<list>
+						<value>/deptJsonController/allTree</value><!-- 部门树 -->
+					</list>
+				</property>
+			</bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	
+    <!-- 配置springMVC处理上传文件的信息,自定义上传,带进度条 -->  
+    <bean id="multipartResolver" class="com.ysmind.common.servlet.CustomMultipartResolver">  
+            <property name="defaultEncoding" value="utf-8" />  
+        <property name="maxUploadSize" value="${web.maxUploadSize}" />  
+    </bean>  
+</beans>

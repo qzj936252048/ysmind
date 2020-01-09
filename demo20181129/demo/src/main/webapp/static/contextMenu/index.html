@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+
+		<link href="css/ContextMenu.css" rel="stylesheet" type="text/css" />
+
+		<script src="jquery-1.4.2.min.js" type="text/javascript"></script>
+		<script src="jquery.contextMenu.js" type="text/javascript"></script>
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+
+				 	$("#trigger1").contextMenu({
+				 		menuId: 'contextMenu',
+				 		onContextMenuItemSelected:function(menuItemId, $triggerElement){
+				 			alert('trigger1'+menuItemId+' '+$triggerElement.attr('id'))
+						},
+						onContextMenuShow:function($triggerElement){
+							alert('trigger1'+$triggerElement.attr('id'))
+						},
+						showShadow:false
+				    });
+				     $("#trigger1").disableContextMenuItems(['edit']) 
+				    //$("#trigger1").enableContextMenuItems(['edit']) //解除某个菜单项的屏蔽
+				    //$("#trigger1").disableContextMenu(); //屏蔽菜单
+				    //$("#trigger1").enableContextMenu(); //解除菜单屏蔽
+				    
+				    $("#trigger2").contextMenu({
+				 		menuId: 'contextMenu',
+				 		onContextMenuItemSelected:function(menuItemId, $triggerElement){
+				 			alert('trigger2'+menuItemId+' '+$triggerElement.attr('id'))
+						},
+						onContextMenuShow:function($triggerElement){
+							alert('trigger2'+$triggerElement.attr('id'))
+						}
+				    });
+				     $("#trigger2").disableContextMenuItems(['delete'])  //屏蔽某个菜单项
+				     //$("#trigger2").enableContextMenuItems(['delete']) //解除某个菜单项的屏蔽
+
+			})
+
+		</script>
+
+
+	</head>
+
+	<body>
+		<ul id="contextMenu" class="contextMenu">
+				<li id="delete" class="delete">
+					<a>删除</a>
+				</li>
+				<li id="edit" class="edit">
+					<a>修改</a>
+				</li>
+		</ul>
+		<div id="trigger1" style="width:100px;height:100px;background-color:green">trigger1</div>
+		<div id="trigger2" style="width:100px;height:100px;background-color:green">trigger2</div>
+	</body>
+</html>

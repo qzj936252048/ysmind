@@ -1,0 +1,3 @@
+执行的SQL语句 : CREATE TEMPORARY TABLE `newpl`.`store_receive_detail_view` SELECT * FROM `newpl`.`store_receive_detail_view` WHERE 0 
+错误号 : 1356 
+错误信息 : View 'newpl.store_receive_detail_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them 
