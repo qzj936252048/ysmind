@@ -54,7 +54,7 @@
 		<velocity.version>1.7</velocity.version>
 		<json-jena.version>1.0</json-jena.version>
 		<jackson.version>2.2.1</jackson.version>
-		<xstream.version>1.4.7</xstream.version>
+		<xstream.version>1.4.19</xstream.version>
 		<joda-time.version>2.3</joda-time.version>
 		<quartz.version>1.6.0</quartz.version>
 	</properties>
